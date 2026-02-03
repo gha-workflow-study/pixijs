@@ -38,7 +38,8 @@ export function generateBlurProgram(horizontal: boolean, kernelSize: number)
         .replace('%blur-struct%', blurStruct)
         .replace('%blur-vertex-out%', blurOut)
         .replace('%blur-fragment-in%', blurStruct)
-        .replace('%blur-sampling%', blurSampling);
+        .replace('%blur-sampling%', blurSampling)
+        .replace('%dimension%', horizontal ? 'z' : 'w');
 
     return GpuProgram.from({
         vertex: {
